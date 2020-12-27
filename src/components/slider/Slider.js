@@ -1,14 +1,36 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useCounter } from '../../hooks/useCounter'
 import iRow from '../../assets/pass_i.svg'
 import dRow from '../../assets/pass_d.svg'
 import { SliderCard } from './SliderCard'
+import { useForm } from '../../hooks/useForm'
 
 export const Slider = () => {
 
-    const [click, setClick] = useState(false)
+    if (typeof (Storage) !== "undefined") {
 
-    const howManyCards = 8
+        if (!localStorage.scaleSlider) {
+            localStorage.scaleSlider = 10;// Guarda el valor de la escala del Slider en el localStorage
+        }
+    }
+
+    const [cardClick, setCardClick] = useState({
+        changeShow: false,
+        howManyCards: 8
+    })
+
+    const { changeShow, howManyCards } = cardClick
+
+    const [value, handleInputChange] = useForm({
+        scale: localStorage.scaleSlider,
+        setcards: ''
+    })
+
+    const { scale, setcards } = value
+
+    const OptionAllRef = useRef(null)
+    const OptionRef = useRef(null)
+    const InputSNRef = useRef(null)
 
     const cantCards = Array.apply(null, Array(howManyCards)).map((x, i) => i) // [0,1,2,3...,n]
 
@@ -19,11 +41,11 @@ export const Slider = () => {
         n
     })
 
-    const handleClick = (val) => {
+    const handleClickPass = (val) => {
 
         // const cards = document.querySelectorAll(".card-slider")
 
-        if (!click) {
+        if (!changeShow) {
             if (val) {
                 increment(1)
             } else {
@@ -57,23 +79,68 @@ export const Slider = () => {
         }
     }
 
+    const handleClickOp = (e) => {
+        e.stopPropagation()
+        OptionAllRef.current.classList.toggle('oc-show')
+        OptionAllRef.current.classList.toggle('op-opacity')
+    }
+
+    const handleClickOpCont = (e) => {
+        e.stopPropagation()
+        OptionAllRef.current.classList.add('oc-show')
+    }
+
+    const handleClickSlide = () => {
+        OptionAllRef.current.classList.remove('oc-show')
+        OptionAllRef.current.classList.remove('op-opacity')
+    }
+
+    const handleInputClickSN = () => {
+        InputSNRef.current.select()
+    }
+
+    const handleSubmitSN = (e) => {
+        e.preventDefault()
+        setCardClick({
+            ...cardClick,
+            howManyCards: parseFloat(setcards)
+        })
+        InputSNRef.current.blur()
+        OptionAllRef.current.classList.remove('oc-show')
+        OptionAllRef.current.classList.toggle('op-opacity')
+        reset(0)
+    }
+
     return (
-        <div className="slide">
-            <div className="cont">
+        <div className="slide" onClick={handleClickSlide}>
+            <div className="cont" style={{ transform: `scale(${scale / 10})` }}>
                 {
                     cantCards.map((unit) =>
-                        <SliderCard key={unit} i={unit} counter={counter} click={click} setClick={setClick} />
+                        <SliderCard key={unit} i={unit} counter={counter} cardClick={cardClick} setCardClick={setCardClick} />
                     )
                 }
             </div>
             {
-                (!click)
+                (!changeShow)
                 &&
                 <div className="pass animate__animated animate__bounceInDown">
-                    <img className="btnld" src={iRow} alt="<" onClick={() => handleClick(false)} />
-                    <img className="btnrd" src={dRow} alt=">" onClick={() => handleClick(true)} />
+                    <img className="btnld" src={iRow} alt="<" onClick={() => handleClickPass(false)} />
+                    <img className="btnrd" src={dRow} alt=">" onClick={() => handleClickPass(true)} />
                 </div>
             }
+            <div ref={OptionAllRef} className="options">
+                <div ref={OptionRef} className="options-content" onClick={handleClickOpCont}>
+                    <label>Scale the Slider</label>
+                    <input className="scalator" name="scale" type="range" value={scale} min="1" max="20" onChange={handleInputChange} />
+                    <form onSubmit={handleSubmitSN}>
+                        <label>Set the number of cards</label>
+                        <input ref={InputSNRef} className="set-card" name="setcards" type="number" value={setcards} min="1" max="8" onChange={handleInputChange} onClick={handleInputClickSN} />
+                    </form>
+                </div>
+                <div className="opt-span" onClick={handleClickOp}>
+                    <span>Options</span>
+                </div>
+            </div>
         </div>
     )
 }

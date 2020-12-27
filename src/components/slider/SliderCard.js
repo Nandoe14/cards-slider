@@ -9,18 +9,23 @@ import card6 from './../../assets/card6.jpg'
 import card7 from './../../assets/card7.jpg'
 import card8 from './../../assets/card8.jpg'
 
-export const SliderCard = ({ i, counter, click, setClick }) => {
+export const SliderCard = ({ i, counter, cardClick, setCardClick }) => {
 
     const cardRef = useRef(null)
     const closeRef = useRef(null)
 
-    const handleClick = () => {
+    const { changeShow } = cardClick
+
+    const handleCardClick = () => {
         if (counter === (i + 1)) {
-            cardRef.current.style.transform = `${!click ? `scale(1.25) translate(${(221 - (24 * i))}px, 0px)` : `translate(${454 - (24 * i)}px , 0)`} `
-            cardRef.current.style.zIndex = `${!click ? 500 : (100 - i)}`
-            cardRef.current.style.transition = `${!click ? 'transform 0.5s cubic-bezier(0.02, 0.39, 0.6, 0.76)' : 'transform 0.5s cubic-bezier(0.02, 0.39, 0.6, 0.76), z-index 0.5s linear'}`
+            cardRef.current.style.transform = `${!changeShow ? `scale(1.25) translate(${(221 - (24 * i))}px, 0px)` : `translate(${454 - (24 * i)}px , 0)`} `
+            cardRef.current.style.zIndex = `${!changeShow ? 500 : (100 - i)}`
+            cardRef.current.style.transition = `${!changeShow ? 'transform 0.5s cubic-bezier(0.02, 0.39, 0.6, 0.76)' : 'transform 0.5s cubic-bezier(0.02, 0.39, 0.6, 0.76), z-index 0.5s linear'}`
             closeRef.current.classList.toggle("show")
-            setClick(!click)
+            setCardClick({
+                ...cardClick,
+                changeShow: !changeShow
+            })
         }
     }
 
@@ -38,7 +43,7 @@ export const SliderCard = ({ i, counter, click, setClick }) => {
                 zIndex: `${100 - i}`,
                 transform: `${(counter === (i + 1)) ? `translate(${(454 - (24 * i))}px , 0)` : `scale(${1 - (i * 0.007)}) rotateX(4deg) rotateY(60deg) rotateZ(1deg) translate(0, ${-(6 * i)}px)`}`
             }}
-            onClick={handleClick}
+            onClick={handleCardClick}
         >
             <h3>{titleCardArray[i]}</h3>
             <div className="para-cont">

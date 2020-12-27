@@ -12,8 +12,8 @@ export const useCounter = ({ init = 0, n = 0 }) => {
         setCounter(counter - factor)
     }
 
-    const reset = () => {
-        setCounter(1)
+    const reset = (x = 1) => {
+        setCounter(x)
     }
 
     const resetn = () => {
