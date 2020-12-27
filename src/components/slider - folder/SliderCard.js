@@ -21,7 +21,7 @@ export const SliderCard = ({ i, counter }) => {
         setClick(!click)
     }
 
-    const titleCardArray = ['Rest for a while', 'Take this for you', 'Do not panic', 'Ok this is so good', 'The color of life', 'Ok we need this', 'And so every time', 'We imagine a world']
+    const titleCardArray = ['Learn from research', 'Take this for you', 'Do not panic', 'Ok this is so good', 'Learn from research', 'Take this for you', 'Do not panic', 'Ok this is so good']
     const footerCardArray = ['Nando', 'Nando', 'Nando', 'Nando', 'Nando', 'Nando', 'Nando', 'Nando']
     const backgrounds = [card1, card2, card3, card4, card5, card6, card7, card8]
 

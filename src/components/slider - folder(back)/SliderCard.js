@@ -21,7 +21,7 @@ export const SliderCard = ({ i, counter }) => {
         setClick(!click)
     }
 
-    const titleCardArray = ['Rest for a while', 'Take this for you', 'Do not panic', 'Ok this is so good', 'The color of life', 'Ok we need this', 'And so every time', 'We imagine a world']
+    const titleCardArray = ['Learn from research', 'Take this for you', 'Do not panic', 'Ok this is so good', 'Learn from research', 'Take this for you', 'Do not panic', 'Ok this is so good']
     const footerCardArray = ['Nando', 'Nando', 'Nando', 'Nando', 'Nando', 'Nando', 'Nando', 'Nando']
     const backgrounds = [card1, card2, card3, card4, card5, card6, card7, card8]
 
@@ -30,14 +30,16 @@ export const SliderCard = ({ i, counter }) => {
             ref={cardRef}
             className={`card-slider ${(counter === i) && 'slide-selected'}`}
             style={{
-                backgroundImage: `url(${backgrounds[i]})`,
                 zIndex: `${100 - i}`,
                 transform: `${(counter === (i + 1)) ? `translate(${(454 - (24 * i))}px , 0)` : `scale(${1 - (i * 0.007)}) rotateX(4deg) rotateY(60deg) rotateZ(1deg) translate(0, ${-(6 * i)}px)`}`
             }}
             onClick={handleClick}
         >
-            <h3>{titleCardArray[i]}</h3>
-            <span>{footerCardArray[i]}</span>
+            <div className="card-front" style={{ backgroundImage: `url(${backgrounds[i]})` }}>
+                <h3>{titleCardArray[i]}</h3>
+                <span>{footerCardArray[i]}</span>
+            </div>
+            <div className="card-back"></div>
         </div>
     )
 }
