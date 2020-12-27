@@ -151,7 +151,7 @@
 }
 
 .op-opacity {
-    opacity: 0.7!important;
+    opacity: 0.9!important;
 }
 
 
@@ -159,7 +159,9 @@
 
 .options {
     color: $primary;
-    background-color: black;
+    background-color: #000000c7;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
     position: absolute;
     top: -153px;
     left: 5%;
@@ -173,24 +175,12 @@
         opacity: 0.7;
     }
 
-    span {
-        display: block;
-        font-size: 20px;
-        text-align: center;
-        line-height: 32px;
-        font-weight: bold;
-        opacity: 0.9;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
     .options-content {
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
         box-sizing: border-box;
         padding: 12px 20px;
+        position: relative;
 
         label {
             display: block;
@@ -200,6 +190,18 @@
         form label {
             margin-bottom: 8px;
         }
+
+        span {
+            color: #f5ffa2;
+            position: absolute;
+            bottom: 7px;
+            cursor: pointer;
+            right: 12px;
+
+            &:hover {
+                color: #fff356;
+            }
+        }
     }
 
     .opt-span {
@@ -207,6 +209,19 @@
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
         cursor: pointer;
+
+        span {
+            display: block;
+            font-size: 20px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            opacity: 0.9;
+    
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 }
 
