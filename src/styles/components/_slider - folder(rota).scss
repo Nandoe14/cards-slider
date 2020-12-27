@@ -45,57 +45,22 @@
 
 .slide h3 {
     color: $primary;
-    font-family: 'Lato', sans-serif;
     font-size: 28px;
     line-height: 35px;
-    letter-spacing: 0.5px;
     padding: 32px 0 30px 30px;
     background-color: #00000075;
-    opacity: 0.9    ;
-}
-
-.slide .para-cont {
-    display: flex;
-    height: 73%;
-    align-items: center;
-    padding: 0 14px;
-}
-
-.slide p {
-    text-shadow: 1px 1px 3px black;
-    color: $primary;
-    font-family: 'Courgette', cursive;
-    font-size: 28px;
-    text-align: center;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .slide span {
-    font-family: 'Sacramento', cursive;
     display: block;
     color: $primary;
-    font-size: 24px;
+    font-size: 16px;
     line-height: 24px;
-    padding-right: 23px;
+    margin-top: 352px;
+    padding-right: 30px;
     float: right;
-    opacity: 0.9;
-}
-
-.slide .close {
-    position: absolute;
-    display: none;
-    right: 0;
-    top: 0;
-    width: 24px;
-    margin: 11px 12px 0 0;
-    opacity: 0.5;
-    padding: 0 0 16px 16px;
-    -webkit-filter: invert(1);
-            filter: invert(1);
-}
-
-.slide .close:hover {
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .pass {
@@ -136,14 +101,5 @@
     // transform: rotateY(0deg) translate(454px,0);
 }
 
-.show {
-    display: block!important;
-}
-
-.hide {
-    display: none!important;
-}
-
 
 // animations
-
