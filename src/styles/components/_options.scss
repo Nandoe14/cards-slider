@@ -1,0 +1,82 @@
+
+.options {
+    color: $primary;
+    background-color: #000000c7;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    position: absolute;
+    top: -153px;
+    left: 5%;
+    opacity: 0.2;
+    width: 300px;
+    z-index: 1000;
+
+    transition: top 0.3s ease;
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    .options-content {
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+        box-sizing: border-box;
+        padding: 12px 20px;
+        position: relative;
+
+        label {
+            display: block;
+            margin-bottom: 22px;
+        }
+
+        form label {
+            margin-bottom: 8px;
+        }
+
+        > span:first-of-type {
+            color: $primary;
+            position: absolute;
+            top: 12px;
+            right: 22px;
+        }
+
+        > span:last-of-type {
+            color: #f5ffa2;
+            position: absolute;
+            bottom: 7px;
+            cursor: pointer;
+            right: 12px;
+
+            &:hover {
+                color: #fff356;
+            }
+        }
+
+        form span {
+            font-size: 14px;
+            font-style: italic;
+            margin-left: 8px;
+            vertical-align: bottom;
+        }
+    }
+
+    .opt-span {
+        border: 2px solid $primary;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        cursor: pointer;
+
+        span {
+            display: block;
+            font-size: 20px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            opacity: 0.9;
+    
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

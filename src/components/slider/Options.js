@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputChange, reset, OptionAllRef }) => {
+export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputChange, reset, OptionAllRef, ofRef }) => {
 
     const OptionRef = useRef(null)
     const InputSNRef = useRef(null)
@@ -34,17 +34,22 @@ export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputC
         }
     }
 
+    const handleClickSetCards = () => {
+        ofRef.current.classList.add('of-show')
+    }
+
     return (
         <div ref={OptionAllRef} className="options">
             <div ref={OptionRef} className="options-content" onClick={handleClickOpCont}>
                 <label>Scale the Slider</label>
-                <input className="scalator" name="scale" type="range" value={scale} min="1" max="20" onChange={handleInputChange} />
+                <span>{scale}</span>
+                <input className="scalator" name="scale" type="range" value={scale} min="1" max="200" onChange={handleInputChange} />
                 <form onSubmit={handleSubmitSN}>
                     <label>Set the number of cards</label>
                     <input ref={InputSNRef} className="set-card" name="setcards" type="number" value={setcards} min="1" max="8" onChange={handleInputChange} onClick={handleInputClickSN} />
                     <span>(8 max.)</span>
                 </form>
-                <span>Set card's content</span>
+                <span onClick={handleClickSetCards}>Set card's content</span>
             </div>
             <div className="opt-span" onClick={handleClickOp}>
                 <span>Options</span>
