@@ -2,8 +2,6 @@
 // Slider
 
 .slide {
-    background-image: url(./../../assets/back_slider4.jpg);
-    background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     position: relative;
@@ -28,6 +26,8 @@
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
     box-sizing: border-box;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
     height: 492px;
     overflow: hidden;
     position: relative;
@@ -58,18 +58,17 @@
     
     span {
         font-family: 'Sacramento', cursive;
-        display: block;
         color: $primary;
         font-size: 24px;
-        line-height: 24px;
+        height: 10%;
         padding-right: 23px;
-        float: right;
         opacity: 0.9;
+        text-align: right;
     }
 
     .para-cont {
         display: flex;
-        height: 73%;
+        height: 100%;
         align-items: center;
         padding: 0 14px;
     }
@@ -129,6 +128,17 @@
 
 .btnld:hover, .btnrd:hover {
     opacity: 0.6;
+}
+
+.background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+    transition: background-image 2s cubic-bezier(0.04, 0.63, 0.35, 0.97);
 }
 
 
@@ -191,7 +201,7 @@
             margin-bottom: 8px;
         }
 
-        span {
+        > span {
             color: #f5ffa2;
             position: absolute;
             bottom: 7px;
@@ -201,6 +211,13 @@
             &:hover {
                 color: #fff356;
             }
+        }
+
+        form span {
+            font-size: 14px;
+            font-style: italic;
+            margin-left: 8px;
+            vertical-align: bottom;
         }
     }
 
@@ -298,6 +315,7 @@
     height: 23px;
     padding-left: 7px;
     font-size: 16px;
+    margin-left: 3px;
 }
 
 // Eliminando las flechas del input de tipo número
@@ -312,4 +330,11 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+// Clase para descargar los bgs
+
+.img-desc {
+    display: none;
+    width: 1px;
 }

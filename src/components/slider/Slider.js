@@ -1,10 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useCounter } from '../../hooks/useCounter'
 import iRow from '../../assets/pass_i.svg'
 import dRow from '../../assets/pass_d.svg'
 import { SliderCard } from './SliderCard'
 import { useForm } from '../../hooks/useForm'
 import { Options } from './Options'
+import { OptionsForm } from './OptionsForm'
+import { BGSlider } from './BGSlider'
 
 export const Slider = () => {
 
@@ -95,16 +97,16 @@ export const Slider = () => {
             {
                 (!changeShow)
                 &&
-                <div className="pass animate__animated animate__bounceInDown">
-                    <img className="btnld" src={iRow} alt="<" onClick={() => handleClickPass(false)} />
-                    <img className="btnrd" src={dRow} alt=">" onClick={() => handleClickPass(true)} />
-                </div>
+                <>
+                    <div className="pass animate__animated animate__bounceInDown">
+                        <img className="btnld" src={iRow} alt="<" onClick={() => handleClickPass(false)} />
+                        <img className="btnrd" src={dRow} alt=">" onClick={() => handleClickPass(true)} />
+                    </div>
+                    <Options cardClick={cardClick} setCardClick={setCardClick} setcards={setcards} scale={scale} handleInputChange={handleInputChange} reset={reset} OptionAllRef={OptionAllRef} />
+                    <OptionsForm />
+                </>
             }
-            {
-                (!changeShow)
-                &&
-                <Options cardClick={cardClick} setCardClick={setCardClick} setcards={setcards} scale={scale} handleInputChange={handleInputChange} reset={reset} OptionAllRef={OptionAllRef} />
-            }
+            <BGSlider />
         </div>
     )
 }

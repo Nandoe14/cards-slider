@@ -22,14 +22,16 @@ export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputC
 
     const handleSubmitSN = (e) => {
         e.preventDefault()
-        setCardClick({
-            ...cardClick,
-            howManyCards: parseFloat(setcards)
-        })
-        InputSNRef.current.blur()
-        OptionAllRef.current.classList.remove('oc-show')
-        OptionAllRef.current.classList.toggle('op-opacity')
-        reset(0)
+        if (setcards.length > 0) {
+            setCardClick({
+                ...cardClick,
+                howManyCards: parseFloat(setcards)
+            })
+            InputSNRef.current.blur()
+            OptionAllRef.current.classList.remove('oc-show')
+            OptionAllRef.current.classList.toggle('op-opacity')
+            reset(0)
+        }
     }
 
     return (
@@ -40,8 +42,9 @@ export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputC
                 <form onSubmit={handleSubmitSN}>
                     <label>Set the number of cards</label>
                     <input ref={InputSNRef} className="set-card" name="setcards" type="number" value={setcards} min="1" max="8" onChange={handleInputChange} onClick={handleInputClickSN} />
+                    <span>(8 max.)</span>
                 </form>
-                <span>More Options...</span>
+                <span>Set card's content</span>
             </div>
             <div className="opt-span" onClick={handleClickOp}>
                 <span>Options</span>
