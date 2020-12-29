@@ -28,8 +28,6 @@ export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputC
                 howManyCards: parseFloat(setcards)
             })
             InputSNRef.current.blur()
-            OptionAllRef.current.classList.remove('oc-show')
-            OptionAllRef.current.classList.toggle('op-opacity')
             reset(0)
         }
     }

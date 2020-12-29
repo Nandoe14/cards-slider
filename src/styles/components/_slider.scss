@@ -101,7 +101,7 @@
 
 .pass {
     position: absolute;
-    top: calc(50vh - 21px);
+    top: calc(50vh - 50px);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -112,8 +112,8 @@
 
 .pass img {
     cursor: pointer;
-    opacity: 0.2;
-    width: 80px;
+    opacity: 0.4;
+    width: 100px;
     -webkit-filter: contrast(0);
             filter: contrast(0);
 

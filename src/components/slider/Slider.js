@@ -114,7 +114,7 @@ export const Slider = () => {
                         <img className="btnrd" src={dRow} alt=">" onClick={() => handleClickPass(true)} />
                     </div>
                     <Options cardClick={cardClick} setCardClick={setCardClick} setcards={setcards} scale={scale} handleInputChange={handleInputChange} reset={reset} OptionAllRef={OptionAllRef} ofRef={ofRef} />
-                    <OptionsForm ofRef={ofRef} howManyCards={howManyCards} />
+                    <OptionsForm howManyCards={howManyCards} cardClick={cardClick} setCardClick={setCardClick} ofRef={ofRef} OptionAllRef={OptionAllRef} {...cardsContent} />
                 </>
             }
             <BGSlider />
