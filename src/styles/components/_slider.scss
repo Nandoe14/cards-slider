@@ -48,12 +48,14 @@
     }
     
     p {
+        display: block;
         text-shadow: 1px 1px 3px black;
         color: $primary;
         font-family: 'Courgette', cursive;
         font-size: 28px;
         text-align: center;
         opacity: 0.9;
+        width: 100%;
     }
     
     span {

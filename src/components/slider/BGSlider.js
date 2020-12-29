@@ -23,7 +23,7 @@ export const BGSlider = () => {
             } else {
                 setState(state + 1)
             }
-        }, 3000000)
+        }, 6000)
     }, [state, setState, bgImgArray.length])
 
     return (

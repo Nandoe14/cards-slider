@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useForm } from '../../hooks/useForm'
 import { InputsFields } from './InputsFields'
 
 export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titleCardArray, paragraphArray, footerCardArray, OptionAllRef }) => {
+
+    const [opstate, setOpState] = useState({
+        titleCheck: false,
+        contentCheck: false,
+        firmCheck: false
+    })
+
+    const { titleCheck, contentCheck, firmCheck } = opstate
 
     const [cardsContents, handleInputChange] = useForm({
         title1: titleCardArray[0],
@@ -29,13 +37,13 @@ export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titl
         title8: titleCardArray[7],
         content8: paragraphArray[7],
         firm8: footerCardArray[7]
-    })
+    }, opstate)
 
     const { title1, content1, firm1, title2, content2, firm2, title3, content3, firm3, title4, content4, firm4, title5, content5, firm5, title6, content6, firm6, title7, content7, firm7, title8, content8, firm8 } = cardsContents
 
     const cantInput = Array.apply(null, Array(howManyCards)).map((x, i) => i) // [0,1,2,3...,n]
 
-    const handleClick = (e) => {
+    const handleOFClick = (e) => {
         e.stopPropagation()
         ofRef.current.classList.add('of-show')
     }
@@ -59,21 +67,40 @@ export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titl
         })
     }
 
+    const handleCheckChange = ({ target }) => {
+        setOpState({
+            ...opstate,
+            [target.name]: target.checked
+        })
+    }
+
+    useLayoutEffect(() => {
+        if (titleCheck) {
+            document.querySelector("input[name='title1']").style.border = '2px solid #0260d1'
+        }
+        if (contentCheck) {
+            document.querySelector("input[name='content1']").style.border = '2px solid #0260d1'
+        }
+        if (firmCheck) {
+            document.querySelector("input[name='firm1']").style.border = '2px solid #0260d1'
+        }
+    }, [titleCheck, contentCheck, firmCheck])
+
     return (
-        <div ref={ofRef} className="options-form" onClick={handleClick}>
+        <div ref={ofRef} className="options-form" onClick={handleOFClick}>
             <div className="of-cont">
                 <h2>Card's Content Options</h2>
                 <div className="same-cont">
                     <div className="label-input-title">
-                        <input id="same-title-input" className="title-input" type="checkbox" />
+                        <input id="same-title-input" name="titleCheck" className="title-input" type="checkbox" onChange={handleCheckChange} />
                         <label htmlFor="same-title-input">Set Same Title</label>
                     </div>
                     <div className="label-input-content">
-                        <input id="same-content-input" className="content-input" type="checkbox" />
+                        <input id="same-content-input" name="contentCheck" className="content-input" type="checkbox" onChange={handleCheckChange} />
                         <label htmlFor="same-content-input">Set Same Content</label>
                     </div>
                     <div className="label-input-firm">
-                        <input id="same-firm-input" className="firm-input" type="checkbox" />
+                        <input id="same-firm-input" name="firmCheck" className="firm-input" type="checkbox" onChange={handleCheckChange} />
                         <label htmlFor="same-firm-input">Set Same Firm</label>
                     </div>
                 </div>
