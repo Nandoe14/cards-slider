@@ -34,7 +34,7 @@ export const InputsFields = ({ i, handleInputChange, cardsContents }) => {
     const firmArray = [firm1, firm2, firm3, firm4, firm5, firm6, firm7, firm8]
 
     const handleIClick = (e) => {
-        e.target.value = ''
+        e.target.select()
     }
 
     return (

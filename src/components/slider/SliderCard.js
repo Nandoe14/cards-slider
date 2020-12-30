@@ -9,7 +9,7 @@ import card6 from './../../assets/card6.jpg'
 import card7 from './../../assets/card7.jpg'
 import card8 from './../../assets/card8.jpg'
 
-export const SliderCard = ({ i, counter, cardClick, setCardClick, titleCardArray, paragraphArray, footerCardArray }) => {
+export const SliderCard = ({ i, counter, cardClick, setCardClick, gap, titleCardArray, paragraphArray, footerCardArray }) => {
 
     const cardRef = useRef(null)
     const closeRef = useRef(null)
@@ -34,11 +34,12 @@ export const SliderCard = ({ i, counter, cardClick, setCardClick, titleCardArray
     return (
         <div
             ref={cardRef}
-            className={`card-slider ${(counter === i) && 'slide-selected'}`}
+            className="card-slider"
             style={{
                 backgroundImage: `url(${backgrounds[i]})`,
                 zIndex: `${100 - i}`,
-                transform: `${(counter === (i + 1)) ? `translate(${(454 - (24 * i))}px , 0)` : `scale(${1 - (i * 0.007)}) rotateX(4deg) rotateY(60deg) rotateZ(1deg) translate(0, ${-(6 * i)}px)`}`
+                transform: `${(counter === (i + 1)) ? `translate(${(454 - (24 * i))}px , 0)` : `scale(${1 - (i * 0.007)}) rotateX(4deg) rotateY(60deg) rotateZ(1deg) translate(0, ${-(6 * i)}px)`}`,
+                marginLeft: `${(i === 0) ? -62 : gap}px`
             }}
             onClick={handleCardClick}
         >

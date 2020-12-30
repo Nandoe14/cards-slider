@@ -1,0 +1,21 @@
+// Pass buttons
+
+@-webkit-keyframes passsliderl {
+    0%   {transform: rotate(-0.25turn) translate(90px, -125px); opacity: 0;}
+    100% {transform: none; opacity: 1;}
+}
+
+@keyframes passsliderl {
+    0%   {transform: rotate(-0.25turn) translate(90px, -125px); opacity: 0;}
+    100% {transform: none; opacity: 1;}
+}
+
+@-webkit-keyframes passsliderr {
+    0%   {transform: rotate(0.25turn) translate(-90px, -125px); opacity: 0;}
+    100% {transform: none; opacity: 1;}
+}
+
+@keyframes passsliderr {
+    0%   {transform: rotate(0.25turn) translate(-90px, -125px); opacity: 0;}
+    100% {transform: none; opacity: 1;}
+}

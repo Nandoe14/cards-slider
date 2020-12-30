@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react'
-import { useForm } from '../../hooks/useForm'
 import { InputsFields } from './InputsFields'
+import { useForm } from '../../hooks/useForm'
 
 export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titleCardArray, paragraphArray, footerCardArray, OptionAllRef }) => {
 
@@ -77,12 +77,18 @@ export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titl
     useLayoutEffect(() => {
         if (titleCheck) {
             document.querySelector("input[name='title1']").style.border = '2px solid #0260d1'
+        } else {
+            document.querySelector("input[name='title1']").style.border = '1px solid rgba(255, 255, 255, 0.7)'
         }
         if (contentCheck) {
             document.querySelector("input[name='content1']").style.border = '2px solid #0260d1'
+        } else {
+            document.querySelector("input[name='content1']").style.border = '1px solid rgba(255, 255, 255, 0.7)'
         }
         if (firmCheck) {
             document.querySelector("input[name='firm1']").style.border = '2px solid #0260d1'
+        } else {
+            document.querySelector("input[name='firm1']").style.border = '1px solid rgba(255, 255, 255, 0.7)'
         }
     }, [titleCheck, contentCheck, firmCheck])
 

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputChange, reset, OptionAllRef, ofRef }) => {
+export const Options = ({ cardClick, setCardClick, setcards, scale, gap, handleInputChange, resetScale, resetGap, reset, OptionAllRef, ofRef }) => {
 
     const OptionRef = useRef(null)
     const InputSNRef = useRef(null)
@@ -36,12 +36,25 @@ export const Options = ({ cardClick, setCardClick, setcards, scale, handleInputC
         ofRef.current.classList.add('of-show')
     }
 
+    const handleScaleClick = () => {
+        resetScale()
+        localStorage.scaleSlider = 100
+    }
+
+    const handleGapClick = () => {
+        resetGap()
+        localStorage.gapSlider = -296
+    }
+
     return (
         <div ref={OptionAllRef} className="options">
             <div ref={OptionRef} className="options-content" onClick={handleClickOpCont}>
-                <label>Scale the Slider</label>
-                <span>{scale}</span>
+                <label onClick={handleScaleClick} title="Reset">Scale the slider</label>
+                <span className="scale-span">{scale}</span>
                 <input className="scalator" name="scale" type="range" value={scale} min="1" max="200" onChange={handleInputChange} />
+                <label onClick={handleGapClick} title="Reset">Set card's gap</label>
+                <span className="gap-span">{parseFloat(gap) + 320}</span>
+                <input className="scalator" name="gap" type="range" value={gap} min="-323" max="-253" onChange={handleInputChange} />
                 <form onSubmit={handleSubmitSN}>
                     <label>Set the number of cards</label>
                     <input ref={InputSNRef} className="set-card" name="setcards" type="number" value={setcards} min="1" max="8" onChange={handleInputChange} onClick={handleInputClickSN} />

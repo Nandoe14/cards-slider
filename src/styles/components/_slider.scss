@@ -4,18 +4,21 @@
 .slide {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
+    max-width: 1600px;
     position: relative;
+    overflow: hidden;
+    width: 100%;
 }
 
 .cont {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
-    overflow: hidden;
-    margin: auto;
+    display: flex;
     height: inherit;
+    justify-content: flex-start;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
     width: 730px;
     z-index: 2;
 }
@@ -23,7 +26,7 @@
 .card-slider {
     background-size: cover;
     border-radius: 18px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9), inset 0px 0px 20px 1px rgba(0,0,0,0.2);
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
@@ -31,59 +34,58 @@
     height: 492px;
     overflow: hidden;
     position: relative;
-    // transform: rotateX(2deg) rotateY(-60deg) rotateZ(2deg);
     width: 320px;
 
     transition: transform 0.5s cubic-bezier(0.02, 0.39, 0.6, 0.76);
 
     h3 {
+        background-color: #00000075;
         color: $primary;
         font-family: 'Lato', sans-serif;
         font-size: 28px;
-        line-height: 35px;
         letter-spacing: 0.5px;
+        line-height: 35px;
         padding: 32px 30px 30px 30px;
-        background-color: #00000075;
         opacity: 0.9;
     }
     
     p {
-        display: block;
-        text-shadow: 1px 1px 3px black;
         color: $primary;
+        display: block;
         font-family: 'Courgette', cursive;
         font-size: 28px;
-        text-align: center;
         opacity: 0.9;
+        text-align: center;
+        text-shadow: 1px 1px 3px black;
         width: 100%;
     }
     
     span {
-        font-family: 'Sacramento', cursive;
         color: $primary;
+        font-family: 'Sacramento', cursive;
         font-size: 24px;
         height: 10%;
-        padding-right: 23px;
         opacity: 0.9;
+        padding-right: 23px;
         text-align: right;
     }
 
     .para-cont {
+        align-items: center;
         display: flex;
         height: 100%;
-        align-items: center;
         padding: 0 14px;
     }
     
     .close {
-        position: absolute;
         display: none;
-        right: 0;
-        top: 0;
-        width: 24px;
         margin: 11px 12px 0 0;
         opacity: 0.5;
         padding: 0 0 16px 16px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 24px;
         -webkit-filter: invert(1);
                 filter: invert(1);
 
@@ -93,51 +95,59 @@
     }
 }
 
-.card-slider:first-of-type {
-    margin-left: -62px;
-}
+// .card-slider:first-of-type {
+//     margin-left: -62px;
+// }
 
-.card-slider:nth-of-type(n+2) {
-    margin-left: -296px;
-}
+// .card-slider:nth-of-type(n+2) {
+//     margin-left: -296px;
+// }
 
-.pass {
+.btnld, .btnrd {
+    cursor: pointer;
     position: absolute;
     top: calc(50vh - 50px);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-.pass img {
-    cursor: pointer;
-    opacity: 0.4;
     width: 100px;
-    -webkit-filter: contrast(0);
-            filter: contrast(0);
+    z-index: 999;
 
     transition: opacity 0.3s ease;
 }
 
+.btnld {
+    left: 30px;
+    transform: rotate(-0.25turn) translate(90px, -140px);
+
+    -webkit-animation: passsliderl 0.3s 0.2s linear 1 forwards;
+
+            animation: passsliderl 0.3s 0.2s linear 1 forwards;
+
+}
+
+.btnrd {
+    right: 30px;
+    transform: rotate(0.25turn) translate(-90px, -140px);
+
+    -webkit-animation: passsliderr 0.3s 0.2s linear 1 forwards;
+
+            animation: passsliderr 0.3s 0.2s linear 1 forwards;
+}
+
 .btnld:active, .btnrd:active {
-    transform: scale(0.9);
+    transform: scale(0.9)!important;
 
     transition: transform 0.1s linear;
 }
 
 .btnld:hover, .btnrd:hover {
-    opacity: 0.6;
+    opacity: 0.6!important;
 }
 
 .background-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
     background-size: cover;
     height: 100vh;
+    left: 0;
+    position: absolute;
+    top: 0;
     width: 100%;
 
     transition: background-image 2s cubic-bezier(0.04, 0.63, 0.35, 0.97);

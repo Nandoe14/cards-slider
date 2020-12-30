@@ -1,12 +1,14 @@
 .options-form {
-    color: $primary;
     background-color: #000000c7;
-    position: absolute;
-    top: 0;
-    right: 0;
+    border-bottom: 2px solid $primary;
+    border-left: 2px solid $primary;
+    color: $primary;
     opacity: 0.9;
     overflow: hidden;
-    width: 0;
+    position: absolute;
+    right: -632px;
+    top: 0;
+    width: 630px;
     z-index: 1000;
 
     transition: all 1s ease;
@@ -16,28 +18,28 @@
     }
 
     h2 {
-        text-align: center;
         margin-bottom: 20px;
+        text-align: center;
     }
 
     button {
-        color: #ffffff;
         background-color: #000000c7;
-        position: absolute;
-        top: 11px;
-        right: 22px;
+        color: #ffffff;
         font-size: 20px;
         height: 42px;
+        position: absolute;
+        right: 22px;
+        top: 11px;
         width: 62px;
     }
 }
 
 .of-cont {
-    position: relative;
     box-sizing: border-box;
     height: 100%;
-    padding: 10px 20px;
     overflow: hidden;
+    padding: 10px 20px;
+    position: relative;
     width: 630px;
 
     .same-cont {
@@ -49,16 +51,16 @@
         
         input[type="checkbox"] {
             cursor: pointer;
-            width: 16px;
             height: 16px;
-            opacity: 0.9;
             margin-right: 10px;
+            opacity: 0.9;
             vertical-align: middle;
+            width: 16px;
         }
 
         label {
-            vertical-align: middle;
             line-height: 16px;
+            vertical-align: middle;
         }
     }
 }
@@ -77,10 +79,10 @@
         }
 
         input[type="text"] {
-            box-sizing: border-box;
             background: rgba(0,0,0,.15);
             border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: 3px;
+            box-sizing: border-box;
             color: $primary;
             font-size: 14px;
             height: 24px;
@@ -105,7 +107,5 @@
 // toggle
 
 .of-show {
-    border-left: 2px solid $primary;
-    border-bottom: 2px solid $primary;
-    width: 630px;
+    right: 0px;
 }
