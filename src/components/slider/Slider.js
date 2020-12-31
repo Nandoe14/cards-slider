@@ -79,24 +79,26 @@ export const Slider = () => {
 
     return (
         <div className="slide" onClick={handleClickSlide}>
-            <div className="cont" style={{ transform: `scale(${scale / 100})` }}>
+            <div className="slide-cent">
+                <div className="cont" style={{ transform: `scale(${scale / 100})` }}>
+                    {
+                        cantCards.map((unit) =>
+                            <SliderCard key={unit} i={unit} counter={counter} cardClick={cardClick} setCardClick={setCardClick} gap={gap} howManyCards={howManyCards} {...cardsContent} />
+                        )
+                    }
+                </div>
                 {
-                    cantCards.map((unit) =>
-                        <SliderCard key={unit} i={unit} counter={counter} cardClick={cardClick} setCardClick={setCardClick} gap={gap} {...cardsContent} />
-                    )
+                    (!changeShow)
+                    &&
+                    <>
+                        <img className="btnld" src={iRow} alt="<" onClick={() => handleClickPass(false)} />
+                        <img className="btnrd" src={dRow} alt=">" onClick={() => handleClickPass(true)} />
+                        <Options cardClick={cardClick} setCardClick={setCardClick} setcards={setcards} howManyCards={howManyCards} scale={scale} gap={gap} handleInputChange={handleInputChange} resetScale={resetScale} resetGap={resetGap} reset={reset} OptionAllRef={OptionAllRef} ofRef={ofRef} />
+                        <OptionsForm howManyCards={howManyCards} cardClick={cardClick} setCardClick={setCardClick} ofRef={ofRef} OptionAllRef={OptionAllRef} {...cardsContent} />
+                    </>
                 }
+                <BGSlider />
             </div>
-            {
-                (!changeShow)
-                &&
-                <>
-                    <img className="btnld" src={iRow} alt="<" onClick={() => handleClickPass(false)} />
-                    <img className="btnrd" src={dRow} alt=">" onClick={() => handleClickPass(true)} />
-                    <Options cardClick={cardClick} setCardClick={setCardClick} setcards={setcards} scale={scale} gap={gap} handleInputChange={handleInputChange} resetScale={resetScale} resetGap={resetGap} reset={reset} OptionAllRef={OptionAllRef} ofRef={ofRef} />
-                    <OptionsForm howManyCards={howManyCards} cardClick={cardClick} setCardClick={setCardClick} ofRef={ofRef} OptionAllRef={OptionAllRef} {...cardsContent} />
-                </>
-            }
-            <BGSlider />
         </div>
     )
 }
