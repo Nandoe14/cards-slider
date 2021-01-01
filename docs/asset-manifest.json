@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.804c4f3f.chunk.css",
+    "main.js": "/static/js/main.949358e8.chunk.js",
+    "main.js.map": "/static/js/main.949358e8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e014e294.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e014e294.js.map",
+    "static/js/2.777190e0.chunk.js": "/static/js/2.777190e0.chunk.js",
+    "static/js/2.777190e0.chunk.js.map": "/static/js/2.777190e0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.804c4f3f.chunk.css.map": "/static/css/main.804c4f3f.chunk.css.map",
+    "static/js/2.777190e0.chunk.js.LICENSE.txt": "/static/js/2.777190e0.chunk.js.LICENSE.txt",
+    "static/media/back_slider1.898cd763.jpg": "/static/media/back_slider1.898cd763.jpg",
+    "static/media/back_slider10.593c06b5.jpg": "/static/media/back_slider10.593c06b5.jpg",
+    "static/media/back_slider2.d0220097.jpg": "/static/media/back_slider2.d0220097.jpg",
+    "static/media/back_slider3.4562a76b.jpg": "/static/media/back_slider3.4562a76b.jpg",
+    "static/media/back_slider4.35a3af90.jpg": "/static/media/back_slider4.35a3af90.jpg",
+    "static/media/back_slider5.5bffcf9a.jpg": "/static/media/back_slider5.5bffcf9a.jpg",
+    "static/media/back_slider6.a5200473.jpg": "/static/media/back_slider6.a5200473.jpg",
+    "static/media/back_slider7.a9da67b6.jpg": "/static/media/back_slider7.a9da67b6.jpg",
+    "static/media/back_slider8.5dac9909.jpg": "/static/media/back_slider8.5dac9909.jpg",
+    "static/media/back_slider9.74f14b75.jpg": "/static/media/back_slider9.74f14b75.jpg",
+    "static/media/card1.75d2498e.jpg": "/static/media/card1.75d2498e.jpg",
+    "static/media/card2.0c0057cc.jpg": "/static/media/card2.0c0057cc.jpg",
+    "static/media/card3.17c52ffe.jpg": "/static/media/card3.17c52ffe.jpg",
+    "static/media/card4.257b020b.jpg": "/static/media/card4.257b020b.jpg",
+    "static/media/card5.0cf31692.jpg": "/static/media/card5.0cf31692.jpg",
+    "static/media/card6.8bb4c96f.jpg": "/static/media/card6.8bb4c96f.jpg",
+    "static/media/card7.10589710.jpg": "/static/media/card7.10589710.jpg",
+    "static/media/card8.ddab4fd2.jpg": "/static/media/card8.ddab4fd2.jpg",
+    "static/media/pass_d2.1c8fca8e.svg": "/static/media/pass_d2.1c8fca8e.svg",
+    "static/media/pass_i2.c3ae128c.svg": "/static/media/pass_i2.c3ae128c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e014e294.js",
+    "static/js/2.777190e0.chunk.js",
+    "static/css/main.804c4f3f.chunk.css",
+    "static/js/main.949358e8.chunk.js"
+  ]
+}

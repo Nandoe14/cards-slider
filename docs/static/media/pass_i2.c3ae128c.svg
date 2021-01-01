@@ -1,0 +1,31 @@
+<svg width="200.00000000000003" height="200.00000000000003" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <filter height="200%" width="200%" y="-50%" x="-50%" id="svg_4_blur">
+   <feGaussianBlur stdDeviation="0.4" in="SourceGraphic"/>
+  </filter>
+  <filter id="svg_7_blur">
+   <feGaussianBlur stdDeviation="0.4" in="SourceGraphic"/>
+  </filter>
+  <filter id="svg_8_blur">
+   <feGaussianBlur stdDeviation="0.4" in="SourceGraphic"/>
+  </filter>
+  <filter id="svg_11_blur">
+   <feGaussianBlur stdDeviation="0.4" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="202" width="202" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse filter="url(#svg_4_blur)" ry="96" rx="96" id="svg_13" cy="100.21185" cx="100.51282" stroke-width="3" stroke="#ffffff" fill="none"/>
+  <g id="svg_18">
+   <line filter="url(#svg_7_blur)" stroke="#ffffff" stroke-linecap="null" stroke-linejoin="null" id="svg_7" y2="73.66132" x2="110.58982" y1="100.54367" x1="89.9394" stroke-width="3" fill="none"/>
+   <line filter="url(#svg_8_blur)" stroke-linecap="null" stroke-linejoin="null" id="svg_8" y2="126.15151" x2="110.48485" y1="99.45454" x1="89.9798" fill-opacity="null" stroke-width="3" stroke="#ffffff" fill="none"/>
+   <ellipse stroke="#ffffff" filter="url(#svg_11_blur)" ry="1.26733" rx="1.11964" id="svg_11" cy="73.65987" cx="110.52796" stroke-width="0" fill="#ffffff"/>
+   <ellipse stroke="#ffffff" filter="url(#svg_11_blur)" ry="1.16124" rx="1.02591" id="svg_12" cy="125.98177" cx="110.44363" stroke-width="0" fill="#ffffff"/>
+  </g>
+ </g>
+</svg>
