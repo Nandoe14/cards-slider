@@ -23,7 +23,6 @@ export const BGSlider = ({ bgseconds }) => {// Background Changer Component
             } else {
                 setState(state + 1)
             }
-            console.log('Activado', bgseconds, state)
         }, bgseconds * 1000)
         return () => {
             clearTimeout(coco)
