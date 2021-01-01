@@ -17,13 +17,17 @@ export const BGSlider = ({ bgseconds }) => {// Background Changer Component
     const bgImgArray = [bgImg1, bgImg2, bgImg3, bgImg4, bgImg5, bgImg6, bgImg7, bgImg8, bgImg9, bgImg10]
 
     useEffect(() => {
-        setTimeout(() => {// Setting the cycle to change the Slider background image
+        const coco = setTimeout(() => {// Setting the cycle to change the Slider background image
             if (state === bgImgArray.length - 1) {
                 setState(0)
             } else {
                 setState(state + 1)
             }
+            console.log('Activado', bgseconds, state)
         }, bgseconds * 1000)
+        return () => {
+            clearTimeout(coco)
+        }
     }, [state, setState, bgImgArray.length, bgseconds])
 
     return (
