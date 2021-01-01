@@ -101,14 +101,6 @@
     }
 }
 
-// .card-slider:first-of-type {
-//     margin-left: -62px;
-// }
-
-// .card-slider:nth-of-type(n+2) {
-//     margin-left: -296px;
-// }
-
 .btnld, .btnrd {
     cursor: pointer;
     position: absolute;
@@ -160,7 +152,7 @@
 }
 
 
-// Clase para descargar los bgs
+// Class to pre-download background images
 
 .img-desc {
     display: none;

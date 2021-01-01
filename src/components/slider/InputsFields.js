@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const InputsFields = ({ i, handleInputChange, cardsContents }) => {
+export const InputsFields = ({ i, handleInputChange, cardsContents }) => {// Inputs constructor
 
     const {
         title1,
@@ -33,11 +33,11 @@ export const InputsFields = ({ i, handleInputChange, cardsContents }) => {
     const contentArray = [content1, content2, content3, content4, content5, content6, content7, content8]
     const firmArray = [firm1, firm2, firm3, firm4, firm5, firm6, firm7, firm8]
 
-    const handleIClick = (e) => {
+    const handleIClick = (e) => {// When click on the inputs with className "title-input"
         e.target.select()
     }
 
-    return (
+    return (// Returns a package of 3 Inputs with settable name and id in order (1 to n) being "n" the number of cards
         <div className="inputs-fields">
             <div className="label-input">
                 <label htmlFor={`title-input${i + 1}`}>{`Set Title (${i + 1})`}</label>

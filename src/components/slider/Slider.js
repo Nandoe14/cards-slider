@@ -14,35 +14,41 @@ import dRow from '../../assets/pass_d2.svg'
 export const Slider = () => {
 
     if (typeof (Storage) !== "undefined") {
-
         if (!localStorage.scaleSlider) {
             localStorage.scaleSlider = 100;// Save to local storage the scale value of 100
         }
         if (!localStorage.gapSlider) {
             localStorage.gapSlider = -296;// Save to local storage the gap value of -296
+        } else if (parseFloat(localStorage.gapSlider) > (35 - 320)) {
+            localStorage.gapSlider = 24 - 320
+        }
+        if (!localStorage.BGtimeSlider) {
+            localStorage.BGtimeSlider = 20000;// Save to local storage the BG time lapse value of 20000 (20s)
         }
     }
 
-    const OptionAllRef = useRef(null)
-    const ofRef = useRef(null)
+    const OptionAllRef = useRef(null)// Catching the div with className "options" at Options.js
+    const ofRef = useRef(null)// Catching the div with className "options-form" at OptionsForm.js
 
     const [cardClick, setCardClick] = useState({
         changeShow: false,
         howManyCards: 8,
+        bgseconds: parseFloat(localStorage.BGtimeSlider) / 1000,
         cardsContent: {
             titleCardArray,
             paragraphArray,
             footerCardArray
         }
     })
-    const { changeShow, howManyCards, cardsContent } = cardClick
+    const { changeShow, howManyCards, bgseconds, cardsContent } = cardClick
 
-    const [value, handleInputChange, resetScale, resetGap] = useForm({
+    const [value, handleInputChange, resetScale, resetGap, resetBGTime] = useForm({
         scale: localStorage.scaleSlider,
         gap: localStorage.gapSlider,
-        setcards: ''
+        setcards: '',
+        bgsecondset: ''
     })
-    const { scale, gap, setcards } = value
+    const { scale, gap, bgsecondset, setcards } = value
 
     const cantCards = Array.apply(null, Array(howManyCards)).map((x, i) => i) // [0,1,2,3...,n]
 
@@ -53,23 +59,23 @@ export const Slider = () => {
         n
     })
 
-    const handleClickPass = (val) => {
+    const handleClickPass = (val) => {// When clicking on the Slider's pass buttons
         if (!changeShow) {
             if (val) {
-                increment(1)
+                increment(1)// Go forward
             } else {
-                decrement(1)
+                decrement(1)// Go backward
             }
 
-            if (counter === 0 && !val) {// Si se da hacia atrás cuando el contador está en 0.
-                resetn()// Resetea el contador al último valor
-            } else if (counter === n && val) {// Si se da hacia adelante cuando el contador llegó al max.
-                reset()// Resetea el contador al primer valor
+            if (counter === 0 && !val) {// If it goes backwards when the counter is at 0.
+                resetn()// Reset the counter to the last value
+            } else if (counter === n && val) {// If it goes forward when the counter reached max.
+                reset()// Reset the counter to the first value
             }
         }
     }
 
-    const handleClickSlide = () => {
+    const handleClickSlide = () => {// When clicking on the Slider
         if (!changeShow) {
             OptionAllRef.current.classList.remove('oc-show')
             OptionAllRef.current.classList.remove('op-opacity')
@@ -83,7 +89,16 @@ export const Slider = () => {
                 <div className="cont" style={{ transform: `scale(${scale / 100})` }}>
                     {
                         cantCards.map((unit) =>
-                            <SliderCard key={unit} i={unit} counter={counter} cardClick={cardClick} setCardClick={setCardClick} gap={gap} howManyCards={howManyCards} {...cardsContent} />
+                            <SliderCard
+                                cardClick={cardClick}
+                                counter={counter}
+                                gap={gap}
+                                howManyCards={howManyCards}
+                                i={unit}
+                                key={unit}
+                                setCardClick={setCardClick}
+                                {...cardsContent}
+                            />
                         )
                     }
                 </div>
@@ -93,11 +108,34 @@ export const Slider = () => {
                     <>
                         <img className="btnld" src={iRow} alt="<" onClick={() => handleClickPass(false)} />
                         <img className="btnrd" src={dRow} alt=">" onClick={() => handleClickPass(true)} />
-                        <Options cardClick={cardClick} setCardClick={setCardClick} setcards={setcards} howManyCards={howManyCards} scale={scale} gap={gap} handleInputChange={handleInputChange} resetScale={resetScale} resetGap={resetGap} reset={reset} OptionAllRef={OptionAllRef} ofRef={ofRef} />
-                        <OptionsForm howManyCards={howManyCards} cardClick={cardClick} setCardClick={setCardClick} ofRef={ofRef} OptionAllRef={OptionAllRef} {...cardsContent} />
+                        <Options
+                            bgseconds={bgseconds}
+                            bgsecondset={bgsecondset}
+                            cardClick={cardClick}
+                            gap={gap}
+                            handleInputChange={handleInputChange}
+                            howManyCards={howManyCards}
+                            ofRef={ofRef}
+                            OptionAllRef={OptionAllRef}
+                            reset={reset}
+                            resetBGTime={resetBGTime}
+                            resetGap={resetGap}
+                            resetScale={resetScale}
+                            scale={scale}
+                            setcards={setcards}
+                            setCardClick={setCardClick}
+                        />
+                        <OptionsForm
+                            cardClick={cardClick}
+                            howManyCards={howManyCards}
+                            ofRef={ofRef}
+                            OptionAllRef={OptionAllRef}
+                            setCardClick={setCardClick}
+                            {...cardsContent}
+                        />
                     </>
                 }
-                <BGSlider />
+                <BGSlider bgseconds={bgseconds} />
             </div>
         </div>
     )

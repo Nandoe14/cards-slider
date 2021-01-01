@@ -89,16 +89,22 @@ body {
     border: 0;
 }
 
-.set-card {
+.set-card, .set-bgseconds {
     background: rgba(0,0,0,.15);
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 3px;
     color: $primary;
     font-size: 16px;
     height: 23px;
-    margin-left: 3px;
     padding-left: 7px;
+}
+
+.set-card {
     width: 7%;
+}
+
+.set-bgseconds {
+    width: 13%;
 }
 
 input:focus, button:focus {
@@ -106,7 +112,7 @@ input:focus, button:focus {
 }
 
 
-// Eliminando las flechas del input de tipo número
+// Removing arrows from input type number
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

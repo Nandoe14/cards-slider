@@ -41,21 +41,21 @@ export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titl
 
     const { title1, content1, firm1, title2, content2, firm2, title3, content3, firm3, title4, content4, firm4, title5, content5, firm5, title6, content6, firm6, title7, content7, firm7, title8, content8, firm8 } = cardsContents
 
-    const cantInput = Array.apply(null, Array(howManyCards)).map((x, i) => i) // [0,1,2,3...,n]
+    const cantInput = Array.apply(null, Array(howManyCards)).map((x, i) => i) // [0,1,2,3...,n] n = howManyCards
 
-    const handleOFClick = (e) => {
+    const handleOFClick = (e) => {// When clicking on the div with className "options-form"
         e.stopPropagation()
         ofRef.current.classList.add('of-show')
     }
 
-    const handleButtonClick = (e) => {
+    const handleButtonClick = (e) => {// When clicking on the form button
         e.stopPropagation()
         ofRef.current.classList.remove('of-show')
         OptionAllRef.current.classList.remove('oc-show')
         OptionAllRef.current.classList.remove('op-opacity')
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => {// When submitting the form to set Card's Content
         e.preventDefault()
         setCardClick({
             ...cardClick,
@@ -67,28 +67,34 @@ export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titl
         })
     }
 
-    const handleCheckChange = ({ target }) => {
+    const handleCheckChange = ({ target }) => {// When changes the check-state of Checkbox Inputs
         setOpState({
             ...opstate,
             [target.name]: target.checked
         })
     }
 
-    useLayoutEffect(() => {
+    useLayoutEffect(() => {// Changing some properties of the first Input for each card's sections
         if (titleCheck) {
-            document.querySelector("input[name='title1']").style.border = '2px solid #0260d1'
+            document.querySelector("#title-input1").style.border = '2px solid #0260d1'
+            document.querySelector("#title-input1").focus()
+            document.querySelector("#title-input1").select()
         } else {
-            document.querySelector("input[name='title1']").style.border = '1px solid rgba(255, 255, 255, 0.7)'
+            document.querySelector("#title-input1").style.border = '1px solid rgba(255, 255, 255, 0.7)'
         }
         if (contentCheck) {
-            document.querySelector("input[name='content1']").style.border = '2px solid #0260d1'
+            document.querySelector("#content-input1").style.border = '2px solid #0260d1'
+            document.querySelector("#content-input1").focus()
+            document.querySelector("#content-input1").select()
         } else {
-            document.querySelector("input[name='content1']").style.border = '1px solid rgba(255, 255, 255, 0.7)'
+            document.querySelector("#content-input1").style.border = '1px solid rgba(255, 255, 255, 0.7)'
         }
         if (firmCheck) {
-            document.querySelector("input[name='firm1']").style.border = '2px solid #0260d1'
+            document.querySelector("#firm-input1").style.border = '2px solid #0260d1'
+            document.querySelector("#firm-input1").focus()
+            document.querySelector("#firm-input1").select()
         } else {
-            document.querySelector("input[name='firm1']").style.border = '1px solid rgba(255, 255, 255, 0.7)'
+            document.querySelector("#firm-input1").style.border = '1px solid rgba(255, 255, 255, 0.7)'
         }
     }, [titleCheck, contentCheck, firmCheck])
 
@@ -98,22 +104,45 @@ export const OptionsForm = ({ ofRef, howManyCards, cardClick, setCardClick, titl
                 <h2>Card's Content Options</h2>
                 <div className="same-cont">
                     <div className="label-input-title">
-                        <input id="same-title-input" name="titleCheck" className="title-input" type="checkbox" onChange={handleCheckChange} />
+                        <input
+                            id="same-title-input"
+                            name="titleCheck"
+                            className="title-input"
+                            type="checkbox"
+                            onChange={handleCheckChange}
+                        />
                         <label htmlFor="same-title-input">Set Same Title</label>
                     </div>
                     <div className="label-input-content">
-                        <input id="same-content-input" name="contentCheck" className="content-input" type="checkbox" onChange={handleCheckChange} />
+                        <input
+                            id="same-content-input"
+                            name="contentCheck"
+                            className="content-input"
+                            type="checkbox"
+                            onChange={handleCheckChange}
+                        />
                         <label htmlFor="same-content-input">Set Same Content</label>
                     </div>
                     <div className="label-input-firm">
-                        <input id="same-firm-input" name="firmCheck" className="firm-input" type="checkbox" onChange={handleCheckChange} />
+                        <input
+                            id="same-firm-input"
+                            name="firmCheck"
+                            className="firm-input"
+                            type="checkbox"
+                            onChange={handleCheckChange}
+                        />
                         <label htmlFor="same-firm-input">Set Same Firm</label>
                     </div>
                 </div>
                 <form onSubmit={handleSubmit}>
                     {
                         cantInput.map((unit) =>
-                            <InputsFields key={unit} i={unit} handleInputChange={handleInputChange} cardsContents={cardsContents} />
+                            <InputsFields
+                                key={unit}
+                                i={unit}
+                                handleInputChange={handleInputChange}
+                                cardsContents={cardsContents}
+                            />
                         )
                     }
                     <button onClick={handleButtonClick}>Go!</button>

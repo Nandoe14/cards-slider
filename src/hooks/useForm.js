@@ -17,10 +17,17 @@ export const useForm = (initialState = {}, opstate = {// Checkbox initial state 
         })
     }
 
-    const resetGap = () => {// Set gap to 
+    const resetGap = () => {// Set gap to -296 (24)
         setvalues({
             ...values,
             gap: -296
+        })
+    }
+
+    const resetBGTime = () => {// Clear the BG time lapse INPUT field
+        setvalues({
+            ...values,
+            bgsecondset: ''
         })
     }
 
@@ -66,7 +73,7 @@ export const useForm = (initialState = {}, opstate = {// Checkbox initial state 
         })
     }
 
-    const noChecked = (target) => {// No same-mode input checked function
+    const noChecked = (target) => {// No same-mode input checked (and the rest inputs) function
         setvalues({
             ...values,
             [target.name]: target.value
@@ -144,5 +151,5 @@ export const useForm = (initialState = {}, opstate = {// Checkbox initial state 
             localStorage.gapSlider = target.value
         }
     }
-    return [values, handleInputChange, resetScale, resetGap]
+    return [values, handleInputChange, resetScale, resetGap, resetBGTime]
 }

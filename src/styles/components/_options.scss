@@ -7,7 +7,7 @@
     left: 5%;
     opacity: 0.2;
     position: absolute;
-    top: -220px;
+    top: -287px;
     width: 300px;
     z-index: 1000;
 
@@ -24,6 +24,10 @@
         padding: 12px 20px;
         position: relative;
 
+        > form:first-of-type {
+            margin-bottom: 12px;
+        }
+
         > label {
             cursor: pointer;
         }
@@ -32,11 +36,7 @@
             display: block;
             margin-bottom: 22px;
         }
-
-        form label {
-            margin-bottom: 8px;
-        }
-
+        
         > span:last-of-type {
             bottom: 7px;
             color: #f5ffa2;
@@ -49,14 +49,18 @@
             }
         }
 
-        form span {
+        form label {
+            margin-bottom: 8px;
+        }
+
+        .max-inputs {
             font-size: 14px;
             font-style: italic;
             margin-left: 8px;
             vertical-align: bottom;
         }
 
-        .scale-span, .gap-span {
+        .scale-span, .gap-span, .bgseconds-span {
             color: $primary;
             position: absolute;
             right: 22px;
@@ -68,6 +72,10 @@
 
         .gap-span {
             top: 81px;
+        }
+
+        .bgseconds-span {
+            top: 180px;
         }
     }
 
